@@ -1,0 +1,116 @@
+* {
+    margin: 0px;
+    background-color: var(--black);
+}
+
+  :root {
+    --black: #0A0A0A;
+    --black-2: #111111;
+    --black-3: #1A1A1A;
+    --black-4: #242424;
+    --yellow: #F5C518;
+    --yellow-dim: #C49A10;
+    --yellow-pale: #2a2200;
+    --white: #F5F5F5;
+    --gray: #888880;
+    --gray-dim: #444440;
+    --border: rgba(245,197,24,0.15);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+
+.nav-link {
+    margin: 0 auto;
+    margin-top: 17px;
+    display: flex;
+    width: 40%;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    border: 1px solid var(--yellow);
+    background-color: var(--black-2);
+    border-radius: 30px;
+}
+
+.nav-link a {
+    font-size: 11px;
+    color: var(--white);
+    text-decoration: none;
+    font-family: var(--font-body);
+    background: none;
+}
+
+.hamburger {
+  display: none;
+  position: absolute;
+  background: none;
+  justify-content: center;
+}
+
+.bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--white);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  margin: 5px;
+}
+
+.bar1 {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--white);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  margin: 5px;
+}
+
+.bar2 {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--white);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  margin: 5px;
+}
+
+.hamburger.active .bar {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .bar1 {
+  opacity: 0;
+}
+
+.hamburger.active .bar2 {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media screen and (max-width: 685px) {
+  .nav-link {
+    position: relative;
+  }
+  .nav-link a {
+    display: none;
+  }
+  .nav-link.active {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .nav-link.active a {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px;
+    text-align: center;
+  }
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+}
