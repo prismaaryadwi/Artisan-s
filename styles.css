@@ -1,8 +1,6 @@
 * {
     margin: 0px;
-    -webkit-tap-highlight-color: transparent;
     background-color: var(--black);
-    user-select: none;
 }
 
   :root {
@@ -94,6 +92,7 @@
   position: relative;
 }
 
+
 @media screen and (max-width: 685px) {
   .nav-link {
     position: relative;
@@ -101,11 +100,15 @@
   .nav-link a {
     display: none;
   }
+
   .nav-link.active {
     flex-direction: column;
     height: auto;
     padding: 20px;
     gap: 10px;
+  }
+  .nav-link a.active {
+    color: var(--black-3);
   }
 
   .nav-link.active a {
@@ -114,9 +117,42 @@
     padding: 12px 0;
     font-size: 16px;
     text-align: center;
+    border: 1px solid white;
+    border-radius: 50px;
+    -webkit-tap-highlight-color: white;
   }
+  .nav-link.active a {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 16px;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 50px;
+  -webkit-tap-highlight-color: transparent; /* matiin highlight bawaan */
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Custom tap highlight yang ngikutin border-radius */
+.nav-link.active a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px; /* sama dengan parent */
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+
+.nav-link.active a:active::after {
+  opacity: 1;
+}
   .hamburger {
     display: block;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
 }
